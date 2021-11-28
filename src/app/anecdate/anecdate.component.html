@@ -1,0 +1,22 @@
+<div layout-gt-md="row" class="zero">
+    <div flex-gt-md="30" flex-offset="10">
+        <div class="calendar">
+            <div class="calendar-head"></div>
+            <div class="calendar-content">{{date}}</div>
+        </div>
+    </div>
+    <div flex-gt-md="30">
+        <mat-card class="add-category">
+            <mat-card-title></mat-card-title>
+            <mat-card-content>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<button mat-raised-button (click)="picker.open()">Open</button>

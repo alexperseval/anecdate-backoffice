@@ -1,0 +1,26 @@
+.category-list {
+    margin: 2%;
+    max-width: 300px;
+    border-radius: 0;
+}
+
+.add-category {
+    margin: 2%;
+    max-width: 300px;
+    border-radius: 0;
+}
+
+li {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+mat-icon {
+    float: right;
+    color: brown;    
+}
+
+mat-icon:hover {
+    color:black;
+    background-color: lightgray;
+}

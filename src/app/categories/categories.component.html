@@ -1,0 +1,27 @@
+<div layout-gt-md="row" class="zero">
+    <div flex-gt-md="30">
+        <mat-card class="category-list">
+            <mat-card-title>Catégories</mat-card-title>
+            <mat-card-content>
+                <mat-divider [inset]="true"></mat-divider>
+                <ul>
+                    <li *ngFor="let category of categories">
+                        {{category.name}}
+                        <mat-icon (click)="delete(category);" title="delete category">delete_forever</mat-icon>
+                    </li>
+                </ul>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div flex-gt-md="30">
+        <mat-card class="add-category">
+            <mat-card-title>Ajouter</mat-card-title>
+            <mat-card-content>
+                <mat-divider [inset]="true"></mat-divider>
+                <div>Nom de la catégorie</div>
+                <input matInput id="new-category" #categoryName>
+                <button mat-button (click)="addCategory(categoryName.value); categoryName.value=''">Ajouter</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
