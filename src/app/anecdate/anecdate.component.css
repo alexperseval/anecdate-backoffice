@@ -2,10 +2,11 @@
     width:150px;
     height: 150px;
     border: solid 3px black;
-    margin-top: 5px;
+    margin-top: 20px;
     background-color: white;
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
+    font-family: 'Poppins';
 }
 
 .calendar-head {
@@ -16,5 +17,81 @@
 }
 
 .calendar-content {
-    padding-top: 10%;
+    padding: 10%;
+    padding-top: 25%;
+    height: 80%;
+}
+
+mat-form-field {
+    width: 1px;
+    display: none;
+}
+
+.anecdate-div {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.anecdate-main {
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 100%;
+    font-size: x-large;
+    font-family: 'Poppins';
+    min-width: 350px;
+    max-width: 500px;
+}
+
+.anecdate-quiz {
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 100%;
+    font-size: x-large;
+    font-family: 'Poppins';
+    min-width: 350px;
+    max-width: 500px;
+}
+
+mat-card {
+    border-radius: 0;
+}
+
+.image {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.year {
+    margin-left: 15px;
+    font-size: xx-large;
+    color: #580404;
+    margin-top: 30%;
+}
+
+button {
+    width: 100%;
+    max-width: 150px;
+    font-size: 12px;
+    color: white;
+    border-radius: 0;
+    margin-top: 10px;
+}
+.button-next {
+    background-color: #0F62FE;
+}
+
+.button-delete {
+    background-color: #DB0A0A;
+}
+
+.title {
+    font-family: 'Source Sans Pro';
+    font-size: smaller;
+    text-align: justify;
+}
+
+.likes {
+    margin-top: 10px;
+    color: white;
+    font-size: 20px;
 }

@@ -21,6 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     NgbModule,
     HttpClientModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    FlexLayoutModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,22 +1,68 @@
-<div layout-gt-md="row" class="zero">
-    <div flex-gt-md="30" flex-offset="10">
-        <div class="calendar">
-            <div class="calendar-head"></div>
-            <div class="calendar-content">{{date}}</div>
+<div fxLayout="row" fxLayout.lt-md="column">
+    <div fxLayoutAlign="center" fxFlex="25">
+        <div>
+            <div class="calendar" (click)="picker.open()">
+                <div class="calendar-head"></div>
+                <div class="calendar-content">{{date}}</div>
+                <mat-form-field>
+                    <input hidden matInput [matDatepicker]="picker" (dateChange)="changeDate($event)">
+                    <mat-datepicker #picker touchUi></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div *ngIf="show">
+                <div>
+                    <button mat-button class="button-next" (click)="nextAnecdate()">Anec'date suivante</button>
+                </div>
+                <div>
+                    <button mat-button class="button-delete">Supprimer l'anec'date</button>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px" class="likes">
+                    <div fxLayout="row">
+                        <div>
+                            <mat-icon>favorite</mat-icon>
+                        </div>
+                        {{currentAnecdate.likes}}
+                    </div>
+                    <div fxLayout="row">
+                        <div>
+                            <mat-icon>favorite_border</mat-icon>
+                        </div>
+                        {{currentAnecdate.dislikes}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div flex-gt-md="30">
-        <mat-card class="add-category">
-            <mat-card-title></mat-card-title>
-            <mat-card-content>
-            </mat-card-content>
-        </mat-card>
+    <div class="anecdate-div" fxLayout.lt-md="column" fxLayoutAlign="left">
+        <div class="anecdate-main" fxFlex fxFlex.lt-md="80">
+            <mat-card class="no-anecdate-card" *ngIf="!show">
+                Aucune anec'date ce jour.
+            </mat-card>
+            <mat-card class="anecdate-card" *ngIf="show">
+                <div class="card-title"> Anec'Date </div>
+                <mat-divider [inset]="true"></mat-divider>
+                <div class="image" fxLayout="row">
+                    <img mat-card-xl-image src="{{currentAnecdate.image}}" layout-fill>
+                    <div class="year">{{currentAnecdate.date.substr(0,4)}}</div>
+                </div>
+                <div class="title">
+                    {{currentAnecdate.title}}
+                </div>
+                <mat-divider [inset]="false"></mat-divider>
+            </mat-card>
+        </div>
+        <div class="anecdate-quiz" fxFlex fxFlex.lt-md="80" *ngIf="show">
+            <mat-card>
+                <div class="card-title"> Quiz </div>
+                <mat-divider [inset]="true"></mat-divider>
+                <div *ngIf="currentAnecdate.idQuiz == null">
+                    Cette anec'date n'a pas de quiz.
+                </div>
+                <div *ngIf="currentAnecdate.idQuiz != null">
+                    Quiz {{currentAnecdate.idQuiz}}
+                </div>
+            </mat-card>
+        </div>
+
     </div>
 </div>
-
-<mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-<button mat-raised-button (click)="picker.open()">Open</button>
