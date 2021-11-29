@@ -59,6 +59,10 @@
                     Cette anec'date n'a pas de quiz.
                 </div>
                 <div *ngIf="currentAnecdate.idQuiz != null">
+                    <img mat-card-sm-image src="{{currentAnecdate.image}}" layout-fill>
+                    <div *ngIf="currentQuiz">
+                        {{currentQuiz.question}}
+                    </div>
                     Quiz {{currentAnecdate.idQuiz}}
                 </div>
             </mat-card>

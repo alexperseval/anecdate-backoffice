@@ -7,8 +7,10 @@ import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnDestroy {
-  title = 'Anec\'date';
+  title = 'Anec\'date Dashboard';
   mobileQuery: MediaQueryList;
+
+  connected:boolean = localStorage.getItem("token") != null;
 
   private _mobileQueryListener: () => void;
 
@@ -20,5 +22,10 @@ export class AppComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  logout() {
+    localStorage.clear();
+    location.reload();
   }
 }

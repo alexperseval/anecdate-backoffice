@@ -1,3 +1,5 @@
+import { Quiz } from "./quiz";
+
 export interface Anecdate {
     id: number;
     status: string;
@@ -11,5 +13,6 @@ export interface Anecdate {
     likes: number;
     dislikes: number;
     image: string;
-    year: string
+    year: string;
+    quiz: Quiz;
 }

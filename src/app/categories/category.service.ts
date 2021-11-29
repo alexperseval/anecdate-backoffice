@@ -23,7 +23,7 @@ export class CategoryService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': CONFIG.token
+        'Authorization': localStorage.getItem("token") || ""
       })
     };
     return this.http.post<Category>(this.url, body.toString(), httpOptions).pipe();
@@ -32,7 +32,7 @@ export class CategoryService {
   deleteCategory(id: number): Observable<any> {
     var httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': CONFIG.token
+        'Authorization': localStorage.getItem("token") || ""
       }),
       'responseType': 'text' as 'text'
     };

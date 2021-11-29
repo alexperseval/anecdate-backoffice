@@ -4,6 +4,7 @@ import * as moment from 'moment';
 import { Anecdate } from './anecdate';
 import { AnecdateService } from './anecdate.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Quiz } from './quiz';
 
 @Component({
   selector: 'app-anecdate',
@@ -19,6 +20,7 @@ export class AnecdateComponent implements OnInit {
 
   anecdateCpt: number = 0;
   currentAnecdate: Anecdate = this.anecdates[0];
+  currentQuiz!: Quiz;
   hasQuiz: boolean = false;
 
   constructor(private anecdateService: AnecdateService, private _snackBar: MatSnackBar) {

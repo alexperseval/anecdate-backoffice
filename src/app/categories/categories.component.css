@@ -24,3 +24,7 @@ mat-icon:hover {
     color:black;
     background-color: lightgray;
 }
+
+#new-category {
+    border: solid 2px black;
+}
