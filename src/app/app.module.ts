@@ -25,6 +25,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AnecdateQuizComponent } from './anecdate/anecdate-quiz/anecdate-quiz.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReportsComponent,
     CategoriesComponent,
     AnecdateListComponent,
-    LoginComponent
+    LoginComponent,
+    AnecdateQuizComponent
   ],
   imports: [
     BrowserModule,

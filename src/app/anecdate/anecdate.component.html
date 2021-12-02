@@ -42,7 +42,7 @@
                 <div class="card-title"> Anec'Date </div>
                 <mat-divider [inset]="true"></mat-divider>
                 <div class="image" fxLayout="row">
-                    <img mat-card-xl-image src="{{currentAnecdate.image}}" layout-fill>
+                    <img mat-card-xl-image src="{{currentAnecdate.image}}" layout-fill class="image-fit">
                     <div class="year">{{currentAnecdate.date.substr(0,4)}}</div>
                 </div>
                 <div class="title">
@@ -52,20 +52,7 @@
             </mat-card>
         </div>
         <div class="anecdate-quiz" fxFlex fxFlex.lt-md="80" *ngIf="show">
-            <mat-card>
-                <div class="card-title"> Quiz </div>
-                <mat-divider [inset]="true"></mat-divider>
-                <div *ngIf="currentAnecdate.idQuiz == null">
-                    Cette anec'date n'a pas de quiz.
-                </div>
-                <div *ngIf="currentAnecdate.idQuiz != null">
-                    <img mat-card-sm-image src="{{currentAnecdate.image}}" layout-fill>
-                    <div *ngIf="currentQuiz">
-                        {{currentQuiz.question}}
-                    </div>
-                    Quiz {{currentAnecdate.idQuiz}}
-                </div>
-            </mat-card>
+            <app-anecdate-quiz [anecdate]="currentAnecdate"></app-anecdate-quiz>
         </div>
 
     </div>

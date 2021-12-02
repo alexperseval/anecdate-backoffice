@@ -61,6 +61,10 @@ mat-card {
     margin-bottom: 15px;
 }
 
+.image-fit {
+    object-fit: cover;
+}
+
 .year {
     margin-left: 15px;
     font-size: xx-large;

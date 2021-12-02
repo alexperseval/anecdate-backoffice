@@ -20,7 +20,7 @@ export class AnecdateService {
   }
 
   getQuiz(id :number): Observable<Quiz>{
-    return this.http.get<Quiz>(this.url + "/" + id + "/quiz/");
+    return this.http.get<Quiz>(this.url + "/" + id + "/quiz");
   }
 
 }

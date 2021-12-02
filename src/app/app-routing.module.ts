@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: 'anecdate-list', component: AnecdateListComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'reports', component: ReportsComponent},
-  {path: 'users', component: UsersComponent}
+  {path: 'users', component: UsersComponent},
+  { path: '',   redirectTo: '/anecdate', pathMatch: 'full' },
 
 ];
 

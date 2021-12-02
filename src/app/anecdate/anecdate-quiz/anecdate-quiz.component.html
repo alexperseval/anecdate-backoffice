@@ -1,0 +1,13 @@
+<mat-card>
+    <div class="card-title"> Quiz </div>
+    <mat-divider [inset]="true"></mat-divider>
+    <div *ngIf="anecdate.idQuiz == null">
+        Cette anec'date n'a pas de quiz.
+    </div>
+    <div *ngIf="anecdate.idQuiz != null">
+        <img mat-card-sm-image src="{{anecdate.image}}" layout-fill  class="image-fit">
+        <div *ngIf="quiz">
+            {{quiz.question}}
+        </div>
+    </div>
+</mat-card>
