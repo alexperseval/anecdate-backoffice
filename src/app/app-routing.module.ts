@@ -5,9 +5,11 @@ import { AnecdateListComponent } from './anecdate-list/anecdate-list.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ReportsComponent } from './reports/reports.component';
 import { UsersComponent } from './users/users.component';
+import { AnecdateDetailComponent } from './anecdate/anecdate-detail/anecdate-detail.component';
 
 const routes: Routes = [
   {path: 'anecdate', component: AnecdateComponent},
+  {path: 'anecdate/:id', component: AnecdateDetailComponent},
   {path: 'anecdate-list', component: AnecdateListComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'reports', component: ReportsComponent},

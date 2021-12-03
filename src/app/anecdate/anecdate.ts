@@ -12,6 +12,7 @@ export interface Anecdate {
     creation_date: string;
     likes: number;
     dislikes: number;
+    idAuthor: number;
     image: string;
     year: string;
     quiz: Quiz;

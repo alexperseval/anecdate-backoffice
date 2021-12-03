@@ -1,32 +1,3 @@
-.calendar {
-    width:150px;
-    height: 150px;
-    border: solid 3px black;
-    margin-top: 20px;
-    background-color: white;
-    text-align: center;
-    font-size: x-large;
-    font-family: 'Poppins';
-}
-
-.calendar-head {
-    width:100%;
-    height: 20%;
-    background-color: #DB0A0A;
-    border-bottom: solid 3px;
-}
-
-.calendar-content {
-    padding: 10%;
-    padding-top: 25%;
-    height: 80%;
-}
-
-mat-form-field {
-    width: 1px;
-    display: none;
-}
-
 .anecdate-div {
     margin-top: 20px;
     width: 100%;
@@ -35,12 +6,12 @@ mat-form-field {
 .anecdate-main {
     margin-left: 2%;
     margin-right: 2%;
-    margin-bottom: 10%;
     height: 100%;
     font-size: x-large;
     font-family: 'Poppins';
     min-width: 350px;
     max-width: 500px;
+    margin-bottom: 20px;
 }
 
 .anecdate-quiz {
@@ -85,7 +56,7 @@ button {
     background-color: #0F62FE;
 }
 
-.button-access {
+.button-delete {
     background-color: #DB0A0A;
 }
 
@@ -99,4 +70,28 @@ button {
     margin-top: 10px;
     color: white;
     font-size: 20px;
+}
+
+.infos {
+    margin-top: 20px;
+}
+
+.anecdate-description {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: justify;
+}
+
+.anecdate-comments {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.anecdate-sources {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 5%;
 }

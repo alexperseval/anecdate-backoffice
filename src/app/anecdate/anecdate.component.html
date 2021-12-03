@@ -14,7 +14,7 @@
                     <button mat-button class="button-next" (click)="nextAnecdate()">Anec'date suivante</button>
                 </div>
                 <div>
-                    <button mat-button class="button-delete">Supprimer l'anec'date</button>
+                    <a  routerLink="/anecdate/{{currentAnecdate.id}}"><button mat-button class="button-access">Accéder à l'anec'date</button></a>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px" class="likes">
                     <div fxLayout="row">
@@ -48,7 +48,6 @@
                 <div class="title">
                     {{currentAnecdate.title}}
                 </div>
-                <mat-divider [inset]="false"></mat-divider>
             </mat-card>
         </div>
         <div class="anecdate-quiz" fxFlex fxFlex.lt-md="80" *ngIf="show">

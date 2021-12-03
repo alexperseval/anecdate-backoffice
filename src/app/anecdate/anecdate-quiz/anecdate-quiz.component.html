@@ -4,10 +4,20 @@
     <div *ngIf="anecdate.idQuiz == null">
         Cette anec'date n'a pas de quiz.
     </div>
-    <div *ngIf="anecdate.idQuiz != null">
-        <img mat-card-sm-image src="{{anecdate.image}}" layout-fill  class="image-fit">
-        <div *ngIf="quiz">
+    <div *ngIf="loaded && anecdate.idQuiz != null" fxLayout="column" fxLayoutAlign="space-around center">
+        <div class="image">
+            <img mat-card-sm-image src="{{anecdate.image}}" layout-fill class="image-fit"> 
+        </div>
+        <div *ngIf="quiz" class="question">
             {{quiz.question}}
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center" class="quiz-row">
+            <mat-card class="answer true_anwser">{{quiz.true_answer}}</mat-card>
+            <mat-card class="answer wrong_anwser">{{quiz.wrong_answer1}}</mat-card>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center" class="quiz-row">
+            <mat-card class="answer wrong_anwser">{{quiz.wrong_answer2}}</mat-card>
+            <mat-card class="answer wrong_anwser">{{quiz.wrong_answer3}}</mat-card>
         </div>
     </div>
 </mat-card>

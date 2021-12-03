@@ -26,6 +26,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AnecdateQuizComponent } from './anecdate/anecdate-quiz/anecdate-quiz.component';
+import { AnecdateDetailComponent } from './anecdate/anecdate-detail/anecdate-detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AnecdateQuizComponent } from './anecdate/anecdate-quiz/anecdate-quiz.co
     CategoriesComponent,
     AnecdateListComponent,
     LoginComponent,
-    AnecdateQuizComponent
+    AnecdateQuizComponent,
+    AnecdateDetailComponent
   ],
   imports: [
     BrowserModule,

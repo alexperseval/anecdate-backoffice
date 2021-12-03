@@ -1,0 +1,90 @@
+<div fxLayout="row" fxLayout.lt-md="column">
+    <div fxLayoutAlign="center" fxFlex="25">
+        <div>
+            <div *ngIf="show">
+                <mat-card class="infos">
+                    <div>Status : {{currentAnecdate.status}}</div>
+                    <mat-divider [inset]="false"></mat-divider>
+                    <div *ngIf="category == null">Catégorie : {{currentAnecdate.idCategory}}</div>
+                    <div *ngIf="category != null">Catégorie : {{category.name}}</div>
+                    <mat-divider [inset]="false"></mat-divider>
+                    <div>Auteur : {{currentAnecdate.idAuthor}}</div>
+                </mat-card>
+                <div>
+                    <button mat-button class="button-next">Accéder à l'auteur</button>
+                </div>
+                <div>
+                    <button mat-button class="button-next">Modifier l'anecdate</button>
+                </div>
+                <div>
+                    <button mat-button class="button-delete">Supprimer l'anec'date</button>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px" class="likes">
+                    <div fxLayout="row">
+                        <div>
+                            <mat-icon>favorite</mat-icon>
+                        </div>
+                        {{currentAnecdate.likes}}
+                    </div>
+                    <div fxLayout="row">
+                        <div>
+                            <mat-icon>favorite_border</mat-icon>
+                        </div>
+                        {{currentAnecdate.dislikes}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="anecdate-div" fxLayout.lt-md="column" fxLayoutAlign="left">
+        <div class="anecdate-main" fxFlex fxFlex.lt-md="80">
+            <mat-card class="no-anecdate-card" *ngIf="!show">
+                Cette anec'date n'existe pas.
+            </mat-card>
+            <mat-card class="anecdate-card" *ngIf="show">
+                <div class="card-title"> Anec'Date </div>
+                <mat-divider [inset]="true"></mat-divider>
+                <div class="image" fxLayout="row">
+                    <img mat-card-xl-image src="{{currentAnecdate.image}}" layout-fill class="image-fit">
+                    <div class="year">{{currentAnecdate.date.substr(0,4)}}</div>
+                </div>
+                <div class="title">
+                    {{currentAnecdate.title}}
+                </div>
+            </mat-card>
+        </div>
+        <div class="anecdate-quiz" fxFlex fxFlex.lt-md="80" *ngIf="show">
+            <app-anecdate-quiz [anecdate]="currentAnecdate"></app-anecdate-quiz>
+        </div>
+    </div>
+</div>
+<div>
+    <mat-card class="anecdate-description" *ngIf="show">
+        <div class="card-title"> Description </div>
+        <mat-divider [inset]="true"></mat-divider>
+        {{currentAnecdate.description}}
+    </mat-card>
+</div>
+<div>
+    <mat-card class="anecdate-comments" *ngIf="show">
+        <div class="card-title"> Commentaires </div>
+        <mat-divider [inset]="true"></mat-divider>
+        <div *ngIf="comments.length == 0">Aucun commentaire</div>
+        <div *ngIf="comments.length > 0">
+            <div class="comment" *ngFor="let comment of comments">
+                {{comment.message}}
+            </div>
+        </div>
+    </mat-card>
+</div>
+<div>
+    <mat-card class="anecdate-sources" *ngIf="show">
+        <div class="card-title"> Sources </div>
+        <mat-divider [inset]="true"></mat-divider>
+        <ul>
+            <li *ngFor="let source of sources;">
+                <a href="{{source}}">{{source}}</a>
+            </li>
+        </ul>
+    </mat-card>
+</div>

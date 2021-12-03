@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
 import { Anecdate } from './anecdate';
 import { AnecdateService } from './anecdate.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Quiz } from './quiz';
+import { AnecdateQuizComponent } from './anecdate-quiz/anecdate-quiz.component';
 
 @Component({
   selector: 'app-anecdate',
   templateUrl: './anecdate.component.html',
-  styleUrls: ['./anecdate.component.css'],
+  styleUrls: ['./anecdate.component.css']
 })
 export class AnecdateComponent implements OnInit {
+
   moment = moment().locale('fr')
   date: string = this.moment.format("D MMMM").toLowerCase();
 
@@ -23,7 +25,8 @@ export class AnecdateComponent implements OnInit {
   currentQuiz!: Quiz;
   hasQuiz: boolean = false;
 
-  constructor(private anecdateService: AnecdateService, private _snackBar: MatSnackBar) {
+  constructor(private anecdateService: AnecdateService,
+    private _snackBar: MatSnackBar) {
 
   }
 
