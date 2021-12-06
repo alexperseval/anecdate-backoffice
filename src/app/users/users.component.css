@@ -1,0 +1,98 @@
+table {
+    width: 100%;
+  }
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 2%;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+td, th {
+    width: 25%;
+}
+
+.tab-container {
+    margin: 2%;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.user-card {
+    margin: 2%;
+    margin-top: 10px;
+    border-radius: 0px;
+    background-color: #F4F4F4;
+}
+
+.personicon {
+    font-size: 50px;
+}
+
+.logo-pseudo {
+    margin: 5px;
+}
+
+#inputName {
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    width: 50%;
+}
+
+#inputEmail {
+    width: 100%;
+    font-size: 20px;
+}
+
+.status-div {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.checkbox-div {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+mat-checkbox:checked {
+    color: #880e0e;
+}
+
+.save {
+    color: blue;
+}
+
+.redo {
+    color: green;
+}
+
+.act-span {
+    color: green;
+}
+
+.inact-span {
+    color: #880e0e;
+}
+
+.card-small {
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+}
+
+.access {
+    float: right;
+    color: #24A148;
+}
+
+p {
+    margin-top: 2px;
+    text-align: justify;
+    font-size: medium;
+}

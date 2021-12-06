@@ -6,13 +6,14 @@ export interface Anecdate {
     title: string;
     date: string;
     idCategory: number;
+    category: string;
     description: string;
     sources: string;
     idQuiz: number;
     creation_date: string;
     likes: number;
     dislikes: number;
-    idAuthor: number;
+    idAuthor: string;
     image: string;
     year: string;
     quiz: Quiz;

@@ -1,1 +1,109 @@
-<p>users works!</p>
+<div fxLayoutAlign="left" fxLayout="row" fxLayout.lt-md="column">
+    <div class="tab-container" fxFlex="65">
+        <mat-form-field appearance="standard">
+            <mat-label>Filtrer</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Pseudo, mail, ..." #input>
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                </ng-container>
+
+                <!-- Pseudo Column -->
+                <ng-container matColumnDef="pseudo">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Pseudo </th>
+                    <td mat-cell *matCellDef="let row"> {{row.pseudo}} </td>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnDef="mail">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                    <td mat-cell *matCellDef="let row"> {{row.mail}} </td>
+                </ng-container>
+
+                <!-- Role Column -->
+                <ng-container matColumnDef="role">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+                    <td mat-cell *matCellDef="let row"> {{row.role}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="select(row)"></tr>
+
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </div>
+    <div class="user-infos" fxFlex="35" *ngIf="userSelected != null">
+        <mat-card class="user-card">
+            <form [formGroup]="userForm" (ngSubmit)="saveUser(userSelected)">
+                <div fxLayoutAlign="start" class="logo-pseudo">
+                    <mat-icon class="personicon">person</mat-icon>
+                    <input id="inputName" value={{userSelected.pseudo}} placeholder="Pseudo" type="text"
+                        formControlName="userPseudo" />
+                    <div fxLayoutAlign="end">
+                        <button mat-icon-button type="submit" matTooltip="Enregistrer les changements">
+                            <mat-icon class="save">save</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" *ngIf="userSelected.status == 'active'"
+                            (click)="deleteUser(userSelected)" matTooltip="Supprimer l'utilisateur">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button mat-icon-button *ngIf="userSelected.status == 'inactive'"
+                            (click)="activateUser(userSelected)" matTooltip="Réactiver le compte utilisateur">
+                            <mat-icon class="redo">redo</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <input id="inputEmail" value={{userSelected.mail}} placeholder="Email" type="email"
+                        formControlName="userMail" />
+                </div>
+                <div class="status-div" *ngIf="userSelected.status == 'inactive'"> Status : <span
+                        class="inact-span">{{userSelected.status}}</span> </div>
+                <div class="status-div" *ngIf="userSelected.status == 'active'"> Status : <span
+                        class="act-span">{{userSelected.status}}</span> </div>
+                <div class="checkbox-div">
+                    <mat-checkbox color="primary" formControlName="userAdmin">
+                        Administrateur</mat-checkbox>
+                </div>
+                <mat-divider inset="true"></mat-divider>
+                <div *ngIf="userAnecdates.length > 0">
+                    <p>{{userAnecdates.length}} anecdate(s)</p>
+                    <div *ngFor="let anec of userAnecdates" class="card-small">
+                        <div>
+                            {{anec.date}}
+                            <a mat-icon-button matTooltip="Accéder à l'anecdate" class="access" href="/anecdate/{{anec.id}}">
+                                <mat-icon>link</mat-icon>
+                            </a>
+                        </div>
+                        <p>{{anec.title}}</p>
+                    </div>
+                    <mat-divider inset="true"></mat-divider>
+                </div>
+                <div *ngIf="userComments.length > 0">
+                    <p>{{userComments.length}} commentaire(s)</p>
+                    <div *ngFor="let com of userComments" class="card-small">
+                        <div>
+                            {{com.date}}
+                            <a mat-icon-button matTooltip="Accéder au commentaire" class="access" href="/anecdate/{{com.idAnecdate}}">
+                                <mat-icon>link</mat-icon>
+                            </a>
+                        </div>
+                        <p>{{com.message}}</p>
+                    </div>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

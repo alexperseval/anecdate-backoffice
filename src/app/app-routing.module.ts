@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnecdateComponent } from './anecdate/anecdate.component';
-import { AnecdateListComponent } from './anecdate-list/anecdate-list.component';
+import { AnecdateListComponent } from './anecdate/anecdate-list/anecdate-list.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ReportsComponent } from './reports/reports.component';
 import { UsersComponent } from './users/users.component';

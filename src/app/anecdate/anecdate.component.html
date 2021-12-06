@@ -14,7 +14,8 @@
                     <button mat-button class="button-next" (click)="nextAnecdate()">Anec'date suivante</button>
                 </div>
                 <div>
-                    <a  routerLink="/anecdate/{{currentAnecdate.id}}"><button mat-button class="button-access">Accéder à l'anec'date</button></a>
+                    <a routerLink="/anecdate/{{currentAnecdate.id}}"><button mat-button class="button-access">Accéder à
+                            l'anec'date</button></a>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px" class="likes">
                     <div fxLayout="row">
@@ -39,7 +40,9 @@
                 Aucune anec'date ce jour.
             </mat-card>
             <mat-card class="anecdate-card" *ngIf="show">
-                <div class="card-title"> Anec'Date </div>
+                <div class="card-title">
+                    <h1>Anec'Date</h1>
+                </div>
                 <mat-divider [inset]="true"></mat-divider>
                 <div class="image" fxLayout="row">
                     <img mat-card-xl-image src="{{currentAnecdate.image}}" layout-fill class="image-fit">

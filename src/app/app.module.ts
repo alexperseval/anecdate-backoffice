@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,7 +8,7 @@ import { AnecdateComponent } from './anecdate/anecdate.component';
 import { UsersComponent } from './users/users.component';
 import { ReportsComponent } from './reports/reports.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { AnecdateListComponent } from './anecdate-list/anecdate-list.component';
+import { AnecdateListComponent } from './anecdate/anecdate-list/anecdate-list.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -27,6 +27,14 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AnecdateQuizComponent } from './anecdate/anecdate-quiz/anecdate-quiz.component';
 import { AnecdateDetailComponent } from './anecdate/anecdate-detail/anecdate-detail.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import {MatTableModule} from '@angular/material/table';
+registerLocaleData(localeFr, LOCALE_ID);
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -59,9 +67,14 @@ import { AnecdateDetailComponent } from './anecdate/anecdate-detail/anecdate-det
     FlexLayoutModule,
     MatSnackBarModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCheckboxModule,
+    MatTooltipModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

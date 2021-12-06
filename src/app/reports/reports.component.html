@@ -1,1 +1,61 @@
-<p>reports works!</p>
+<div class="container-report">
+  <mat-card>
+    <div fxLayoutAlign="left" fxLayout="col">
+      <div fxFlex="30" class="report-list">
+        <div class="number-report" fxLayoutAlign="center">
+          <h2>{{reports.length}} anecdate(s) signalé(es)</h2>
+        </div>
+        <div *ngIf="reports.length > 0">
+          <div *ngFor="let report of reports">
+            <div [ngClass]="currentReport.id == report.id ? 'selected-report' : 'report'" (click)="select(report)">
+              <div class="report-author">{{report.idAuthor}}</div>
+              <p class="report-title">{{report.anecdate}}</p>
+              <div class="report-date">{{report.date}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxFlex="70" class="report-detail">
+        <div *ngIf="currentReport != null && currentAnecdate != null" fxLayout="row">
+          <div class="anecdate-main" fxFlex="50">
+            <mat-card class="anecdate-card">
+              <div class="card-title">
+                <h1>Anec'Date</h1>
+              </div>
+              <mat-divider [inset]="true"></mat-divider>
+              <div class="image" fxLayout="row">
+                <img mat-card-xl-image src="{{currentAnecdate.image}}" layout-fill class="image-fit">
+                <div class="year">{{currentAnecdate.date.substr(0,4)}}</div>
+              </div>
+              <div class="title">
+                {{currentAnecdate.title}}
+              </div>
+            </mat-card>
+            <div fxLayout="row" fxLayoutAlign="center">
+              <a href="/anecdate/{{currentAnecdate.id}}"><button mat-button class="button-anec">Accéder à
+                  l'anec'date</button></a>
+            </div>
+          </div>
+          <div fxFlex="50" class="author-infos">
+            <h1>Anecdote signalée par :</h1>
+            <p class="currentReportAuthor"><b>{{currentReport.idAuthor}}</b></p>
+            <ul>
+              <li>{{currentReport.nbAnec}} anecdote(s) publiée(s)</li>
+              <li>{{currentReport.nbCom}} commentaire(s) posté(s)</li>
+            </ul>
+            <mat-divider [inset]="true"></mat-divider>
+            <h2 class="report-idk"> Motif de signalement : </h2>
+            <div class="object-report">{{currentReport.object}}</div>
+            <h2 class="report-idk"> Commentaires : </h2>
+            <div class="comment-report">{{currentReport.comment}}</div>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around end" style="height: 180px;" *ngIf="reports.length > 0">
+          <button *ngIf="currentAnecdate.status=='active'" mat-button class="button-desactivate" (click)="disable(currentReport)">Désactiver l'anecdate</button>
+          <div *ngIf="currentAnecdate.status=='inactive'">Anecdate désactivée</div>
+          <button mat-button class="button-delete" (click)="delete(currentReport, 'Signalement supprimé !')">Supprimer le report</button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

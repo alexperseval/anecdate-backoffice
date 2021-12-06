@@ -1,8 +1,8 @@
-export interface Quiz {
+export interface Comment {
     id: number;
     status: string;
-    idAuthor: number;
+    idAuthor: string;
     message: string;
-    date: Date;
+    date: string;
     idAnecdate: number;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResponseLogin } from './response';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -36,12 +37,15 @@ export class LoginComponent implements OnInit {
 
   connect(user: string, pass: string) {
     if (user != "" && user != null && pass != "" && pass != null)
-      this.loginService.login(user, pass).subscribe(res => {
+      this.loginService.login(user, CryptoJS.SHA256(pass).toString()).subscribe(res => {
         this.response = res;
+        console.log("res")
         if(this.response.success) {
           localStorage.setItem("token", this.response.token);
           location.reload()
         }
+      }, err => {
+        this.errorLogin = true;
       });
   }
 

@@ -1,0 +1,141 @@
+.container-report {
+  margin: 2%;
+  margin-top: 20px;
+}
+
+mat-card {
+  border-radius: 0;
+  padding: 0px;
+}
+
+.report-list {
+  direction: rtl;
+  max-height: 80vh;
+  overflow-y : scroll;
+}
+
+.report-detail {
+  background-color: #CED0D6;
+  min-height: 600px;
+}
+
+.number-report {
+  direction: ltr;
+  border-bottom: solid 2px black;
+}
+
+.report {
+  direction: ltr;
+  border-bottom: solid 1px black;
+  border-right: solid 1px black;
+}
+
+.report-date {
+  text-align: end;
+  color: gray;
+}
+
+.report-title {
+  text-align: justify;
+  margin: 15px;
+}
+
+.report-author {
+  padding-top: 5px;
+  font-size: large;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font: bolder;
+}
+
+.selected-report {
+  direction: ltr;
+  background-color: #CED0D6;
+  border-bottom: solid 1px black;
+  border-right: solid 1px lightgray;
+}
+
+.anecdate-main {
+  margin: 2%;
+  font-size: x-large;
+  font-family: 'Poppins';
+}
+
+.anecdate-card {
+  width: 360px;
+  height: 360px;
+}
+
+.image {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.image-fit {
+  object-fit: cover;
+  margin-left: 5px;
+}
+
+.year {
+  margin-left: 15px;
+  font-size: xx-large;
+  color: #580404;
+  margin-top: 30%;
+}
+
+.title {
+  font-family: 'Source Sans Pro';
+  margin: 5px;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.currentReportAuthor {
+  font-size: x-large;
+}
+
+.author-infos {
+  margin: 10px;
+}
+
+.report-idk {
+  margin-top: 20px;
+}
+
+.object-report {
+  background-color: white;
+  font-size: 20px;
+  border: solid 1px black;
+  padding: 3px;
+  width: 70%
+}
+
+.comment-report {
+  background-color: white;
+  font-size: 20px;
+  border: solid 1px black;
+  padding: 3px;
+  height: 50%;
+  max-height: 150px;
+}
+
+.button-anec {
+  background-color: forestgreen;
+  color: white;
+  border-radius: 0px;
+  margin-top: 10px;
+}
+
+.button-delete {
+  background-color: #0F62FE;
+  color: white;
+  border-radius: 0px;
+  margin-top: 10px;
+}
+
+.button-desactivate {
+  background-color: #880E0E;
+  color: white;
+  border-radius: 0px;
+  margin-top: 10px;
+}

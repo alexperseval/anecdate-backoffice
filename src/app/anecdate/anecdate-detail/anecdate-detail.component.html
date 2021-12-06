@@ -1,37 +1,43 @@
 <div fxLayout="row" fxLayout.lt-md="column">
     <div fxLayoutAlign="center" fxFlex="25">
-        <div>
-            <div *ngIf="show">
-                <mat-card class="infos">
-                    <div>Status : {{currentAnecdate.status}}</div>
-                    <mat-divider [inset]="false"></mat-divider>
-                    <div *ngIf="category == null">Catégorie : {{currentAnecdate.idCategory}}</div>
-                    <div *ngIf="category != null">Catégorie : {{category.name}}</div>
-                    <mat-divider [inset]="false"></mat-divider>
-                    <div>Auteur : {{currentAnecdate.idAuthor}}</div>
-                </mat-card>
+        <div *ngIf="show">
+            <mat-card class="infos">
                 <div>
-                    <button mat-button class="button-next">Accéder à l'auteur</button>
+                    <h2>Status : {{currentAnecdate.status}}</h2>
                 </div>
+                <mat-divider [inset]="false"></mat-divider>
+                <div *ngIf="category == null">
+                    <h2>Catégorie : {{currentAnecdate.idCategory}}</h2>
+                </div>
+                <div *ngIf="category != null">
+                    <h2>Catégorie : {{category.name}}</h2>
+                </div>
+                <mat-divider [inset]="false"></mat-divider>
                 <div>
-                    <button mat-button class="button-next">Modifier l'anecdate</button>
+                    <h2 class="author">Auteur : {{currentAnecdate.idAuthor}}</h2>
                 </div>
-                <div>
-                    <button mat-button class="button-delete">Supprimer l'anec'date</button>
-                </div>
-                <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px" class="likes">
-                    <div fxLayout="row">
-                        <div>
-                            <mat-icon>favorite</mat-icon>
-                        </div>
-                        {{currentAnecdate.likes}}
+            </mat-card>
+            <div fxLayout="row" fxLayoutAlign="center">
+                <button mat-button class="button-infos button-next">Modifier l'anecdate</button>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center" *ngIf="currentAnecdate.status == 'active'">
+                <button mat-button class="button-infos button-delete" (click)="delete()">Désactiver l'anec'date</button>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center" *ngIf="currentAnecdate.status != 'active'">
+                <button mat-button class="button-infos button-activate" (click)="activate()">Réactiver l'anec'date</button>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px" class="likes">
+                <div fxLayout="row">
+                    <div>
+                        <mat-icon>favorite</mat-icon>
                     </div>
-                    <div fxLayout="row">
-                        <div>
-                            <mat-icon>favorite_border</mat-icon>
-                        </div>
-                        {{currentAnecdate.dislikes}}
+                    {{currentAnecdate.likes}}
+                </div>
+                <div fxLayout="row">
+                    <div>
+                        <mat-icon>favorite_border</mat-icon>
                     </div>
+                    {{currentAnecdate.dislikes}}
                 </div>
             </div>
         </div>
@@ -42,7 +48,9 @@
                 Cette anec'date n'existe pas.
             </mat-card>
             <mat-card class="anecdate-card" *ngIf="show">
-                <div class="card-title"> Anec'Date </div>
+                <div class="card-title">
+                    <h1>Anec'Date</h1>
+                </div>
                 <mat-divider [inset]="true"></mat-divider>
                 <div class="image" fxLayout="row">
                     <img mat-card-xl-image src="{{currentAnecdate.image}}" layout-fill class="image-fit">
@@ -60,30 +68,49 @@
 </div>
 <div>
     <mat-card class="anecdate-description" *ngIf="show">
-        <div class="card-title"> Description </div>
+        <div class="card-title">
+            <h1>Description</h1>
+        </div>
         <mat-divider [inset]="true"></mat-divider>
         {{currentAnecdate.description}}
     </mat-card>
 </div>
 <div>
     <mat-card class="anecdate-comments" *ngIf="show">
-        <div class="card-title"> Commentaires </div>
-        <mat-divider [inset]="true"></mat-divider>
+        <div class="card-title">
+            <h1>Commentaires</h1>
+        </div>
         <div *ngIf="comments.length == 0">Aucun commentaire</div>
         <div *ngIf="comments.length > 0">
             <div class="comment" *ngFor="let comment of comments">
-                {{comment.message}}
+                <div *ngIf="comment.status == 'active'" fxLayout="column" fxLayoutAlign="start none">
+                    <mat-divider [inset]="true"></mat-divider>
+                    <div class="comment-head" fxFlex>
+                        <div>{{comment.idAuthor}}</div>
+                        <div>{{comment.date}}</div>
+                    </div>
+                    <div fxFlex>
+                        {{comment.message}}
+                    </div>
+                </div>
+                <div fxLayoutAlign="end">
+                    <button mat-icon-button *ngIf="comment.status == 'active'" color="primary" (click)="deleteComment(comment)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
             </div>
         </div>
     </mat-card>
 </div>
 <div>
     <mat-card class="anecdate-sources" *ngIf="show">
-        <div class="card-title"> Sources </div>
+        <div class="card-title">
+            <h1>Sources</h1>
+        </div>
         <mat-divider [inset]="true"></mat-divider>
         <ul>
             <li *ngFor="let source of sources;">
-                <a href="{{source}}">{{source}}</a>
+                <a href="//{{source}}">{{source}}</a>
             </li>
         </ul>
     </mat-card>
