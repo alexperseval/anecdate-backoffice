@@ -17,7 +17,7 @@ export class AnecdateService {
 
   constructor(private http: HttpClient) { }
 
-  get(id: number) : Observable<Anecdate>{
+  get(id: number): Observable<Anecdate> {
     return this.http.get<Anecdate>(this.url + "/" + id);
   }
 
@@ -82,5 +82,31 @@ export class AnecdateService {
 
   getAll(): Observable<Anecdate[]> {
     return this.http.get<Anecdate[]>(this.url);
+  }
+
+  updateAnecdate(id: number, date: string, description: string, sources: string, title: string, idCategory: string, question: string, tanswer: string, wanswer1: string, wanswer2: string, wanswer3: string) {
+    let body = new URLSearchParams();
+    if (date != null && description != null && sources != null && title != null && idCategory != null) {
+      body.set("date", date);
+      body.set("title", title);
+      body.set("description", description);
+      body.set("sources", sources);
+      body.set("idCategory", idCategory);
+    }
+    if(question != null && tanswer != null && wanswer1 != null && wanswer2 != null && wanswer3 != null) {
+      body.set("question", question);
+      body.set("true_answer", tanswer);
+      body.set("wrong_answer1", wanswer1);
+      body.set("wrong_answer2", wanswer2);
+      body.set("wrong_answer3", wanswer3);
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': localStorage.getItem("token") || ""
+      }),
+      'responseType': 'text' as 'text',
+    };
+    return this.http.put(this.url + "/" + id, body, httpOptions);
   }
 }

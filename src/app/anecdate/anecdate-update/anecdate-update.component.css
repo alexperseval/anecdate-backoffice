@@ -1,0 +1,35 @@
+mat-card {
+    border-radius: 0;
+    margin-top: 20px;
+}
+
+#inputDesc {
+    width: 100%;
+}
+
+#inputTitle {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#inputSources {
+    width: 100%;
+}
+
+#quiz {
+    width: 100%;
+}
+
+#question {
+    margin-top: 10px;
+    width: 80%;
+}
+
+.submit-btn {
+    background-color: #880e0e;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #685454;
+}

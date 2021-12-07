@@ -1,0 +1,94 @@
+<div class="container">
+    <div *ngIf="!found">
+        <mat-card>Impossible de modifier l'anecdate {{id}}.</mat-card>
+    </div>
+    <div *ngIf="found">
+        <mat-card>
+            <h1>Modification de l'anecdate {{id}}</h1>
+            <mat-divider [inset]="true"></mat-divider>
+            <form [formGroup]="anecForm" (ngSubmit)="saveAnec(anecdate)">
+                <div fxLayout="column" fxLayoutAlign="center start">
+
+                    <mat-form-field appearance="outline"  id="inputTitle">
+                        <mat-label>Titre de l'anecdate</mat-label>
+                        <input matInput value={{anecdate.title}} placeholder="Titre" type="text"
+                            formControlName="anecTitle" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" id="inputDesc">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput value={{anecdate.description}} placeholder="Description"
+                            type="text" formControlName="anecDescription" ></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Date</mat-label>
+                        <input id="inputDate" matInput [matDatepicker]="picker" value={{anecdate.date}}
+                            formControlName="anecDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Catégorie</mat-label>
+                        <mat-select [(value)]="anecdate.idCategory" formControlName="anecCategory">
+                            <mat-option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" id="inputSources">
+                        <mat-label>Sources</mat-label>
+                        <textarea matInput id="inputSources" value={{anecdate.sources}} placeholder="Sources" type="text"
+                            formControlName="anecSources" ></textarea>
+                    </mat-form-field>
+
+                    <div *ngIf="anecdate.idQuiz" id="quiz">
+                        <h1>Quiz</h1>
+                        <mat-divider [inset]="true"></mat-divider>
+
+                        <mat-form-field appearance="outline"  id="question">
+                            <mat-label>Question</mat-label>
+                            <input matInput value={{anecdate.quiz.question}} placeholder="Question ?" type="text"
+                                formControlName="question" />
+                        </mat-form-field>
+
+                        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayout.lt-md="column">
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Bonne réponse</mat-label>
+                                <input matInput value={{anecdate.quiz.true_answer}} placeholder="Bonne réponse" type="text"
+                                    formControlName="quizTAnswer" />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Mauvaise réponse</mat-label>
+                                <input matInput value={{anecdate.quiz.wrong_answer1}} placeholder="Mauvaise réponse" type="text"
+                                    formControlName="quizWAnswer1" />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Mauvaise réponse</mat-label>
+                                <input matInput value={{anecdate.quiz.wrong_answer1}} placeholder="Mauvaise réponse" type="text"
+                                    formControlName="quizWAnswer2" />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Mauvaise réponse</mat-label>
+                                <input matInput value={{anecdate.quiz.wrong_answer1}} placeholder="Mauvaise réponse" type="text"
+                                    formControlName="quizWAnswer3" />
+                            </mat-form-field>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <button mat-button type="submit" class="submit-btn">
+                            Enregistrer
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

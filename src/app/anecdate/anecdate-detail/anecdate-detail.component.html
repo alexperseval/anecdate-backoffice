@@ -18,7 +18,7 @@
                 </div>
             </mat-card>
             <div fxLayout="row" fxLayoutAlign="center">
-                <button mat-button class="button-infos button-next">Modifier l'anecdate</button>
+                <a routerLink="/anecdate/{{currentAnecdate.id}}/update"><button mat-button class="button-infos button-next">Modifier l'anecdate</button></a>
             </div>
             <div fxLayout="row" fxLayoutAlign="center" *ngIf="currentAnecdate.status == 'active'">
                 <button mat-button class="button-infos button-delete" (click)="delete()">Désactiver l'anec'date</button>

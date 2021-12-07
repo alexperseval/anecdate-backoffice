@@ -22,19 +22,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AnecdateQuizComponent } from './anecdate/anecdate-quiz/anecdate-quiz.component';
 import { AnecdateDetailComponent } from './anecdate/anecdate-detail/anecdate-detail.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 registerLocaleData(localeFr, LOCALE_ID);
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AnecdateUpdateComponent } from './anecdate/anecdate-update/anecdate-update.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     AnecdateListComponent,
     LoginComponent,
     AnecdateQuizComponent,
-    AnecdateDetailComponent
+    AnecdateDetailComponent,
+    AnecdateUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -72,9 +76,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatPaginatorModule,
     MatSortModule,
     MatCheckboxModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR'}],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

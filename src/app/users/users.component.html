@@ -83,7 +83,7 @@
                     <div *ngFor="let anec of userAnecdates" class="card-small">
                         <div>
                             {{anec.date}}
-                            <a mat-icon-button matTooltip="Accéder à l'anecdate" class="access" href="/anecdate/{{anec.id}}">
+                            <a mat-icon-button matTooltip="Accéder à l'anecdate" class="access" routerLink="/anecdate/{{anec.id}}">
                                 <mat-icon>link</mat-icon>
                             </a>
                         </div>
@@ -96,7 +96,7 @@
                     <div *ngFor="let com of userComments" class="card-small">
                         <div>
                             {{com.date}}
-                            <a mat-icon-button matTooltip="Accéder au commentaire" class="access" href="/anecdate/{{com.idAnecdate}}">
+                            <a mat-icon-button matTooltip="Accéder au commentaire" class="access" routerLink="/anecdate/{{com.idAnecdate}}">
                                 <mat-icon>link</mat-icon>
                             </a>
                         </div>
