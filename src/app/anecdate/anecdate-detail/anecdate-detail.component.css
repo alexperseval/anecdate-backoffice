@@ -104,6 +104,7 @@ mat-card {
 .comment {
     margin-left: 5px;
     text-align: justify;
+    overflow: clip;
 }
 
 .comment-head {
