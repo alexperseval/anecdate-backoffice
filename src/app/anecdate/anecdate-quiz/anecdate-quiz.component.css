@@ -29,6 +29,10 @@ mat-card {
     margin-top: 15px;
 }
 
+.image-fit {
+    object-fit: contain;
+}
+
 .quiz-row {
     width: 100%;
 }
