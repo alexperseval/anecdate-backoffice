@@ -13,7 +13,7 @@ import { UsersService } from 'src/app/users/users.service';
   styleUrls: ['./anecdate-list.component.css']
 })
 export class AnecdateListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'title', 'description', 'category', 'idAuthor', 'date', 'like', 'dislikes', 'link'];
+  displayedColumns: string[] = ['id', 'title', 'description', 'category', 'idAuthor', 'date', 'like', 'dislikes', 'status', 'link'];
   dataSource!: MatTableDataSource<Anecdate>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
