@@ -12,7 +12,7 @@ import { Anecdate } from '../anecdate/anecdate';
 export class UsersService {
 
 
-  private url = "http://" + CONFIG.ip + ":" + CONFIG.port + "/api/user";
+  private url = "https://" + CONFIG.ip + ":" + CONFIG.port + "/api/user";
 
   constructor(private http: HttpClient) { }
 

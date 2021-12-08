@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CategoryService {
 
-  private url = "http://" + CONFIG.ip + ":" + CONFIG.port + "/api/category";
+  private url = "https://" + CONFIG.ip + ":" + CONFIG.port + "/api/category";
 
   constructor(private http: HttpClient) { }
 

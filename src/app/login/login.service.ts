@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoginService {
 
   
-  private url = "http://" + CONFIG.ip + ":" + CONFIG.port + "/api/login";
+  private url = "https://" + CONFIG.ip + ":" + CONFIG.port + "/api/login";
 
   constructor(private http: HttpClient) { }
 

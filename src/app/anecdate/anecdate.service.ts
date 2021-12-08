@@ -13,7 +13,7 @@ import { User } from './user';
 })
 export class AnecdateService {
 
-  private url = "http://" + CONFIG.ip + ":" + CONFIG.port + "/api/anecdate";
+  private url = "https://" + CONFIG.ip + ":" + CONFIG.port + "/api/anecdate";
 
   constructor(private http: HttpClient) { }
 
@@ -34,7 +34,7 @@ export class AnecdateService {
   }
 
   getCategory(id: number): Observable<Category> {
-    return this.http.get<Category>("http://" + CONFIG.ip + ":" + CONFIG.port + "/api/category/" + id);
+    return this.http.get<Category>("https://" + CONFIG.ip + ":" + CONFIG.port + "/api/category/" + id);
   }
 
   getComments(id: number): Observable<Comment[]> {
@@ -42,7 +42,7 @@ export class AnecdateService {
   }
 
   getCommentAuthor(id: string): Observable<User> {
-    return this.http.get<User>("http://" + CONFIG.ip + ":" + CONFIG.port + "/api/user/" + id);
+    return this.http.get<User>("https://" + CONFIG.ip + ":" + CONFIG.port + "/api/user/" + id);
   }
 
   deleteAnecdate(id: number) {
@@ -77,7 +77,7 @@ export class AnecdateService {
       }),
       'responseType': 'text' as 'text',
     };
-    return this.http.delete("http://" + CONFIG.ip + ":" + CONFIG.port + "/api/comment/" + id, httpOptions);
+    return this.http.delete("https://" + CONFIG.ip + ":" + CONFIG.port + "/api/comment/" + id, httpOptions);
   }
 
   getAll(): Observable<Anecdate[]> {
