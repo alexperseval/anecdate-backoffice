@@ -3,6 +3,7 @@ import { LoginService } from './login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResponseLogin } from './response';
 import * as CryptoJS from 'crypto-js';
+import { UsersService } from '../users/users.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UsersService,
   ) { }
 
   ngOnInit(): void {
@@ -39,10 +41,15 @@ export class LoginComponent implements OnInit {
     if (user != "" && user != null && pass != "" && pass != null)
       this.loginService.login(user, CryptoJS.SHA256(pass).toString()).subscribe(res => {
         this.response = res;
-        console.log("res")
         if(this.response.success) {
-          localStorage.setItem("token", this.response.token);
-          location.reload()
+          this.userService.get(res.id+"").subscribe(u => {
+            if(u.role == 1) {
+              localStorage.setItem("token", this.response.token);
+              location.reload()
+            } else {
+              this.errorLogin = true;
+            }
+          })         
         }
       }, err => {
         this.errorLogin = true;

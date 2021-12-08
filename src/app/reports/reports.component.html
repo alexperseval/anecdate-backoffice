@@ -50,9 +50,9 @@
             <div class="comment-report">{{currentReport.comment}}</div>
           </div>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-around end" style="height: 180px;" *ngIf="reports.length > 0">
+        <div fxLayout="row" fxLayoutAlign="space-around end" style="height: 180px;" *ngIf="reports.length > 0 && currentAnecdate">
           <button *ngIf="currentAnecdate.status=='active'" mat-button class="button-desactivate" (click)="disable(currentReport)">Désactiver l'anecdate</button>
-          <div *ngIf="currentAnecdate.status=='inactive'">Anecdate désactivée</div>
+          <div *ngIf="currentAnecdate.status!='active'">Anecdate désactivée</div>
           <button mat-button class="button-delete" (click)="delete(currentReport, 'Signalement supprimé !')">Supprimer le report</button>
         </div>
       </div>

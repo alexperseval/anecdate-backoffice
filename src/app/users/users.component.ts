@@ -110,7 +110,7 @@ export class UsersComponent implements OnInit {
 
   getAnecdates(user: User) {
     this.usersService.getAnecdates(user.id).subscribe(res => {
-      this.userAnecdates = res.filter(c => c.status == "active");
+      this.userAnecdates = res.filter(c => c.status != "inactive");
       this.userAnecdates.forEach(anec => {
         let d = this.datepipe.transform(anec.date, "d MMMM y");
         anec.date = d || new Date("d MMMM y").toString();
