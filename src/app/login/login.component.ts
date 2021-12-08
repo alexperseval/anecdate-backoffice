@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     if (user != "" && user != null && pass != "" && pass != null)
       this.loginService.login(user, CryptoJS.SHA256(pass).toString()).subscribe(res => {
         this.response = res;
+        console.log(res)
         if(this.response.success) {
           this.userService.get(res.id+"").subscribe(u => {
             if(u.role == 1) {
