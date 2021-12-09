@@ -9,7 +9,7 @@ import { Report } from './report';
 })
 export class ReportService {
 
-  private url = "https://" + CONFIG.ip + ":" + CONFIG.port + "/api/report";
+  private url = "http://" + CONFIG.ip + ":" + CONFIG.port + "/api/report";
 
   constructor(private http: HttpClient) { }
 
