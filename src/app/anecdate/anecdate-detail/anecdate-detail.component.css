@@ -34,7 +34,7 @@ mat-card {
 }
 
 .image-fit {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .year {
